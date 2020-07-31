@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "./Product";
+import CurrencyFormat from 'react-currency-format';
 
 import "./Home.css";
 
@@ -39,14 +40,14 @@ function Home() {
                 <Product
                     id={4156}
                     title="Microsoft Surface Pro X "
-                    price={96,650}
+                    price={96650}
                     rating={4}
                     image="https://images-na.ssl-images-amazon.com/images/I/51ZqIfidWfL._SL1200_.jpg"
                 />
                 <Product
                     id={7564}
                     title="Apple MacBook Pro"
-                    price={1,99,999}
+                    price={199999}
                     rating={5}
                     image="https://images-na.ssl-images-amazon.com/images/I/71L2iBSyyOL._SL1500_.jpg"
                 />
@@ -55,7 +56,7 @@ function Home() {
                 <Product
                     id={3256}
                     title="Samsung LC49HG90DMUXEN 48.9-inch Ultra Wide Curved Monitor (Black)"
-                    price={1,40,800}
+                    price={140800}
                     rating={4}
                     image="https://images-na.ssl-images-amazon.com/images/I/81vlA84pg6L._SL1500_.jpg"
                 />

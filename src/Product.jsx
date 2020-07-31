@@ -1,4 +1,6 @@
 import React from "react";
+import CurrencyFormat from 'react-currency-format';
+
 import "./Product.css";
 
 function Product({ id, title, price, rating, image }) {
@@ -8,7 +10,7 @@ function Product({ id, title, price, rating, image }) {
                 <p>{title}</p>
                 <p className="product__price">
                     <small>‎₹‎</small>
-                    <strong>{price}</strong>
+                    <strong><CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} thousandSpacing={'2s'} /></strong>
                 </p>
                 <div className="product__rating">
                     {Array(rating)
