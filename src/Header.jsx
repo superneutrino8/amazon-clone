@@ -9,6 +9,8 @@ import "./Header.css";
 function Header() {
     const [{ basket }] = useStateValue();
 
+    console.log(basket);
+
     return (
         <nav className="header">
             {/* Logo on left */}
@@ -59,7 +61,7 @@ function Header() {
                     <ShoppingBasketIcon className="header__basketIcon" />
                     {/* Item Count */}
                     <span className="header__option--line2 header__basketCount">
-                        {basket.length}
+                        {basket?.length}
                     </span>
                 </div>
             </Link>
