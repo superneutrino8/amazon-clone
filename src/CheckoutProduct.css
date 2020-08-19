@@ -1,0 +1,17 @@
+.checkoutProduct {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.checkoutProduct>img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+.checkoutProduct__info {
+    flex: 4;
+}
