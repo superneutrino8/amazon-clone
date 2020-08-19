@@ -10,7 +10,14 @@ function reducer(state, action) {
                 basket: [...state.basket, action.item],
             };
         case "REMOVE_FROM_BASKET":
-            return { state };
+            let newBasket = [...state.basket];
+            let index = newBasket.findIndex((index) => index.id === action.id);
+            if (index >= 0) {
+                newBasket.splice(index, 1);
+            } else {
+                console.log("Item not present. ID: " + action.id);
+            }
+            return { ...state, basket: newBasket };
         default:
             return state;
     }

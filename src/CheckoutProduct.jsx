@@ -1,9 +1,19 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
+import { useStateValue } from "./StateProvider";
 
 import "./CheckoutProduct.css";
 
 function CheckoutProduct({ item, title, image, rating, price }) {
+    const [{ basket }, dispatch] = useStateValue();
+
+    const removeFromBasket = () => {
+        dispatch({
+            type: "REMOVE_FROM_BASKET",
+            id: item,
+        });
+    };
+
     return (
         <div className="checkoutProduct">
             <img src={image} alt={title} />
@@ -31,6 +41,7 @@ function CheckoutProduct({ item, title, image, rating, price }) {
                             </p>
                         ))}
                 </div>
+                <button onClick={removeFromBasket}>Remove from Basket</button>
             </div>
         </div>
     );

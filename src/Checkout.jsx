@@ -25,7 +25,7 @@ function Checkout() {
             ) : (
                 <div className="">
                     <h2>Your Shopping Basket</h2>
-                    {basket.map((item) => (
+                    {basket?.map((item) => (
                         <CheckoutProduct
                             key={item.id}
                             item={item.id}
