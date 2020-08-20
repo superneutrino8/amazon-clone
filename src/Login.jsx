@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "firebase";
 
 import "./Login.css";
 
 function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const login = (event) => {
+        event.preventDefault();
+        auth.signInWithEmailAndPassword(email, password)
+            .then((auth) => {})
+            .catch((e) => console.log(e));
+    };
+
+    const register = (event) => {
+        event.preventDefault();
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((auth) => {})
+            .catch((e) => console.log(e));
+    };
+
     return (
         <div className="login">
             <Link path="/">
@@ -17,10 +35,26 @@ function Login() {
                 <h2>Sign In</h2>
                 <form action="">
                     <h5>E-mail</h5>
-                    <input type="email" name="email" id="email" />
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
                     <h5>Password</h5>
-                    <input type="password" name="pass" id="pass" />
-                    <button className="login__button" type="submit">
+                    <input
+                        type="password"
+                        name="pass"
+                        id="pass"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button
+                        className="login__button"
+                        type="submit"
+                        onClick={login}
+                    >
                         Sign In
                     </button>
                 </form>
@@ -29,7 +63,10 @@ function Login() {
                     Please see out Privacy Notice, our Cookies Notice and our
                     Interset-Based Ads Notice.
                 </p>
-                <button className="login__button login__button--white">
+                <button
+                    className="login__button login__button--white"
+                    onClick={register}
+                >
                     Create Your Amazon Account
                 </button>
             </div>
