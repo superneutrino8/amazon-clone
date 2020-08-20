@@ -5,6 +5,7 @@ import Header from "./Header";
 import "./App.css";
 import Home from "./Home";
 import Checkout from "./Checkout";
+import Login from "./Login";
 
 function App() {
     return (
@@ -16,7 +17,7 @@ function App() {
                         <Checkout />
                     </Route>
                     <Route path="/login">
-                        <h1>Login Page</h1>
+                        <Login />
                     </Route>
                     <Route extact path="/">
                         <Header />
