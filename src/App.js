@@ -32,6 +32,8 @@ function App() {
         };
     }, [dispatch]);
 
+    // console.log("USER >>>", user);
+
     return (
         <Router>
             <div className="app">

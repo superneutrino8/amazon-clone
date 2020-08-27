@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "firebase";
+import { auth } from "./firebase";
 
 import "./Login.css";
 
@@ -12,7 +12,9 @@ function Login() {
     const login = (event) => {
         event.preventDefault();
         auth.signInWithEmailAndPassword(email, password)
-            .then((auth) => {})
+            .then((auth) => {
+                history.push("/");
+            })
             .catch((e) => console.log(e));
     };
 
