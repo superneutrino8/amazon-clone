@@ -7,18 +7,30 @@ import Header from "./Header";
 import { useStateValue } from "./StateProvider";
 
 import "./App.css";
-import { auth } from "firebase";
+import { auth } from "./firebase";
 
 function App() {
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ user }, dispatch] = useStateValue();
 
     useEffect(() => {
-        auth.onAuthStateChanged((authUser) => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
+                dispatch({
+                    type: "SET_USER",
+                    user: authUser,
+                });
             } else {
+                dispatch({
+                    type: "SET_USER",
+                    user: null,
+                });
             }
         });
-    }, []);
+
+        return () => {
+            unsubscribe();
+        };
+    }, [dispatch]);
 
     return (
         <Router>
